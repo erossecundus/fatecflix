@@ -12,7 +12,7 @@ function gerarNovoId(lista) {
 }
 
 // carrega filmes do localStorage ou mockados
-const filmesSalvos = JSON.parse(localStorage.getItem("filmes")) || filmesMockados;
+const filmesSalvos = JSON.parse(localStorage.getItem("filmes")) || [];
 
 // Se for edição, carrega os dados no formulário
 if (idFilme) {

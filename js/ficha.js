@@ -2,7 +2,7 @@
 
 const params = new URLSearchParams(window.location.search);
 const id = parseInt(params.get("id"));
-const filmes = JSON.parse(localStorage.getItem("filmes")) || filmesMockados;
+const filmes = JSON.parse(localStorage.getItem("filmes")) || [];
 
 const filme = filmes.find(f => f.id === id);
 if (filme) {
