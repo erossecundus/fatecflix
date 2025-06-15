@@ -1,0 +1,13 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(145deg, #000000, #3a3a3a);
+  color: #ffffff;
+}
+
+.shadow-red {
+  box-shadow: 0 0 15px 10px rgba(220, 24, 45, 0.2);
+}
+.shadow-white {
+  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.15);
+}
