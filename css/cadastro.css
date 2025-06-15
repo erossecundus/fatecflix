@@ -1,0 +1,12 @@
+.btn-input-img :hover {
+  cursor: pointer;
+}
+
+.btn-input-img {
+  min-height: 100px;
+}
+
+.btn-input-img img {
+  
+  object-fit: contain;
+}
