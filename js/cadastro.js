@@ -2,6 +2,9 @@
 const params = new URLSearchParams(window.location.search);
 const idFilme = params.get("id");
 
+// carrega filmes do localStorage
+const filmesSalvos = JSON.parse(localStorage.getItem("filmes")) || [];
+
 // variavel para guardar imagem
 let imagemBase64 = "";
 
@@ -10,9 +13,6 @@ function gerarNovoId(lista) {
   if (filmesSalvos.length === 0) return 1;
   return filmesSalvos[filmesSalvos.length - 1].id + 1;
 }
-
-// carrega filmes do localStorage ou mockados
-const filmesSalvos = JSON.parse(localStorage.getItem("filmes")) || filmesMockados;
 
 // Se for edição, carrega os dados no formulário
 if (idFilme) {
@@ -125,7 +125,7 @@ document.getElementById("btnExcluir").addEventListener("click", function () {
 
   if (!confirm("Tem certeza que deseja excluir este filme?")) return;
 
-  const novosFilmes = filmes.filter(f => f.id != idFilme);
+  const novosFilmes = filmesSalvos.filter(f => f.id != idFilme);
 
   localStorage.setItem("filmes", JSON.stringify(novosFilmes));
 

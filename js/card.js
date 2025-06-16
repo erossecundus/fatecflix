@@ -3,11 +3,20 @@ function createMovieCard(movie) {
     ? movie.sinopse.slice(0, 45) + "..."
     : movie.sinopse;
 
+  const notaFormatada = parseFloat(movie.notaUsuario).toFixed(1);
+
   return `
     <div class="col card-filme">
       <div class="card shadow-white h-100">
-        <img src="${movie.poster}" class="card-img-top" alt="${movie.titulo}">
+        <div class="position-relative">
+          <div id="nota-filme" class=" badge position-absolute top-0 end-0 border border-light rounded-pill p-2 m-2 shadow-badge fw-bold">
+          ${notaFormatada}
+          </div>
+          <img src="${movie.poster}" class="card-img-top" alt="${movie.titulo}">
+          
+        </div>
         <div class="card-body">
+        
           <div class="d-flex justify-content-between align-items-center">
             <h5 class="card-title">${movie.titulo}
             <span class="text-body-secondary fs-6">(${movie.ano})</span></h5>

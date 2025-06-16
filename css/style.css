@@ -11,3 +11,8 @@ body {
 .shadow-white {
   box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.15);
 }
+.shadow-badge {
+  box-shadow: 0 0 12px 8px rgba(220, 24, 45, 0.4),
+        inset 0 0 10px 15px rgba(0, 0, 0, 0.30);
+  
+}

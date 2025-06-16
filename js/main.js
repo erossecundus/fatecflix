@@ -1,7 +1,7 @@
 // script principal da aplicação
 
 // carrega filmes do localStorage ou mockados
-const filmesSalvos = JSON.parse(localStorage.getItem("filmes")) || filmesMockados;
+const filmesSalvos = JSON.parse(localStorage.getItem("filmes")) || [];
 
 // Carregar e exibir cards
 const container = document.getElementById("movie-list");
