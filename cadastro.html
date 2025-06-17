@@ -49,6 +49,9 @@
             <div class="col-md-2">
               <label for="inputAno" class="form-label">Ano</label>
               <input type="text" class="form-control" id="inputAno">
+              <div class="invalid-feedback">
+                Ano inválido! Digite um ano com 4 dígitos.
+              </div>
             </div>
             <div class="col-md-2">
               <label for="inputClassificacao" class="form-label">Classificação</label>
@@ -61,10 +64,16 @@
             <div class="col-md-2">
               <label for="inputDuracao" class="form-label">Duração</label>
               <input type="text" class="form-control" id="inputDuracao">
+              <div class="invalid-feedback">
+                Duração inválida! Digite um número inteiro (em minutos).
+              </div>
             </div>
             <div class="col-md-2">
               <label for="inputNota" class="form-label">Minha Nota</label>
               <input type="text" class="form-control" id="inputNota">
+              <div class="invalid-feedback">
+                Nota inválida! Digite um número entre 0.0 e 10.0.
+              </div>
             </div>
             <div class="col-md-10">
               <label for="inputDirecao" class="form-label">Direção</label>
@@ -86,7 +95,7 @@
           <!-- TODO: isso aqui está quase bom, revisar -->
           <div class="row border rounded-3 mx-3 shadow-white text-center align-items-center"
             onclick="document.getElementById('uploadInput').click()">
-            
+
             <img src="" alt="" class="col rounded-3 img-fluid d-none d-block p-0" id="previewImage"></img>
             <!-- Ícone de upload -->
             <div id="uploadIcon" class="col">
@@ -99,10 +108,11 @@
               </svg>
             </div>
             <!-- Input invisível -->
-            <input type="file" id="uploadInput" class="form-control d-none" accept="image/*" onchange="mostrarPreview(event)">
-            
+            <input type="file" id="uploadInput" class="form-control d-none" accept="image/*"
+              onchange="mostrarPreview(event)">
+
           </div>
-          
+
         </div>
 
         <!-- Botões -->

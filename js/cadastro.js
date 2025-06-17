@@ -41,6 +41,7 @@ if (idFilme) {
   }
 }
 
+// exibe um preview da imagem
 function mostrarPreview(event) {
   const input = event.target;
   const file = input.files[0];
@@ -60,9 +61,67 @@ function mostrarPreview(event) {
   }
 }
 
+
+// validando campos de Ano, Duração e Minha Nota logo depois de digitar
+document.getElementById("inputAno").addEventListener("blur", () => {
+  const input = document.getElementById("inputAno");
+  const ano = input.value.trim();
+  if (!/^\d{4}$/.test(ano)) {
+    input.classList.add("is-invalid");
+  } else {
+    input.classList.remove("is-invalid");
+  }
+});
+const duracaoInput = document.getElementById("inputDuracao");
+duracaoInput.addEventListener("blur", () => {
+  const duracao = duracaoInput.value.trim();
+  if (!/^\d+$/.test(duracao)) {
+    duracaoInput.classList.add("is-invalid");
+  } else {
+    duracaoInput.classList.remove("is-invalid");
+  }
+});
+const notaInput = document.getElementById("inputNota");
+notaInput.addEventListener("blur", () => {
+  const nota = parseFloat(notaInput.value.trim());
+  if (isNaN(nota) || nota < 0 || nota > 10) {
+    notaInput.classList.add("is-invalid");
+  } else {
+    notaInput.classList.remove("is-invalid");
+  }
+});
+
+// função de validação para uso nos botões
+function validarFormulario() {
+  const ano = document.getElementById("inputAno").value.trim();
+  const duracao = document.getElementById("inputDuracao").value.trim();
+  const nota = parseFloat(document.getElementById("inputNota").value.trim());
+
+  if (!/^\d{4}$/.test(ano)) {
+    alert("Ano inválido! Digite um ano com 4 dígitos.");
+    return false;
+  }
+
+  if (!/^\d+$/.test(duracao)) {
+    alert("Duração inválida! Digite um número inteiro (em minutos).");
+    return false;
+  }
+
+  if (isNaN(nota) || nota < 0 || nota > 10) {
+    alert("Nota inválida! Digite um número entre 0.0 e 10.0.");
+    return false;
+  }
+
+  return true;
+}
+
+
+
 // salvando um filme
 document.querySelector("form").addEventListener("submit", function (e) {
   e.preventDefault();
+
+  if (!validarFormulario()) return;
 
   const hoje = new Date();
   const dataAdicao = hoje.toISOString().slice(0, 10);
@@ -99,6 +158,8 @@ document.getElementById("btnAlterar").addEventListener("click", function () {
     alert("Filme não encontrado.");
     return;
   }
+
+  if (!validarFormulario()) return;
 
   filmesSalvos[index] = {
     ...filmesSalvos[index], // preserva dataAdicao e outros dados
